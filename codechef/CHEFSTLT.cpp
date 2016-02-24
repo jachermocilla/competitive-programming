@@ -1,6 +1,6 @@
 /**
  * author: jachermocilla@gmail.com
- * url: https://www.codechef.com/status/CHEFSTLT,jachermocilla
+ * url: https://www.codechef.com/status/CHEFSTLT,jachermocillat
 */
 
 #include <iostream>
