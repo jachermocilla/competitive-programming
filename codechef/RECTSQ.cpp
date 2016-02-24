@@ -27,12 +27,10 @@ int main(){
                 //break; 
            }
         }
-        cout << "lcd:" << lcd << endl;    
+        //cout << "lcd:" << lcd << endl;    
         if (lcd == 1){
-            //cout << "lcd:" << lcd << endl;    
-            cout << (max/min)  << endl;
+            cout << (max*min)  << endl;
         }else{
-            //cout << "lcd:" << lcd << endl;    
             cout << ((N/lcd)*(M/lcd)) << endl;
         }
     }
