@@ -13,12 +13,12 @@ using namespace std;
 
 
 int main(){
-    ull n,i,j,k;
+    ull n,i,j,k,t;
     ull T,N,M;
 
     cin >> T;
 
-    for (i=0;i<T;i++){
+    for (t=0;t<T;t++){
         
     }
 
