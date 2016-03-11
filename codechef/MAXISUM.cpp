@@ -15,17 +15,19 @@ using namespace std;
 #define ull unsigned long long
 
 
+
 int main(){
-    ull n,i,j,k;
+    ull n,i,j,k,t;
     ull T,N,M,K;
     int tmp;
+    long long asum, bsum;
 
     vector <int> A;
     vector <int> B;
 
     cin >> T;
 
-    for (i=0;i<T;i++){
+    for (t=0;t<T;t++){
         A.clear();
         B.clear();
         
@@ -39,45 +41,54 @@ int main(){
             cin >> tmp;
             B.push_back(tmp);
         }
-        
+      
         /*
         for (j=0;j<N;j++)
             cout << A[j] << endl;
         for (j=0;j<N;j++)
             cout << B[j] << endl;
         */
+        //cout << maxprod << endl;
 
-        ull maxindex=0;
-        int max=-99999999;
-        for (j=0;j<N;j++){
-            if (abs(A[j])>max){
-                if ( (A[j]<=0) && (B[j]<=0) ){
-                    max=A[j];
-                    maxindex=j;
-                }
-                else if ( (A[j]>=0) && (B[j]>=0) ){
-                    max=A[j];
-                    maxindex=j;
+        while(K>0){
+            /*
+            for(i=0;i<N;i++){
+                cout << A[i] << " ";
+            }
+            cout << endl;
+            
+            for(i=0;i<N;i++){
+                cout << B[i] << " ";
+            }
+            cout << endl;
+            */
+
+            long long prod=0;
+            long long maxprod=-99999999;
+            long long maxindex=0;
+            for (i=0;i<N;i++){
+                prod=A[i]*B[i];
+                if (prod>maxprod){
+                    maxprod=prod;
+                    maxindex=i;
                 }
             }
-        }  
-        //cout << "max:" << maxindex << endl; 
-        for (j=0;j<K;j++){
-            if (A[maxindex] >= 0)
+            //cout << maxprod << endl; 
+            if (((A[maxindex]+1)*B[maxindex]) > maxprod){
                 A[maxindex]++;
-            else if (A[maxindex] < 0){
-                if (maxindex!=0)
-                    A[maxindex]--;
             }
+        
+            else if (((A[maxindex]-1)*B[maxindex]) > maxprod){
+                A[maxindex]--;
+            }
+            K--;
         }
-
-        double sum=0;
-        for (j=0;j<N;j++){
-            sum+=A[j]*B[j];
+        
+        int sum=0;
+        for (i=0;i<N;i++){
+            sum+=A[i]*B[i];
         }
         cout << sum << endl;
-    
-
     }
 
     return 0;
