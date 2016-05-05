@@ -1,7 +1,7 @@
 /**
  * vim: set cindent:
  * author: jachermocilla@gmail.com
- * url: 
+ * url: https://www.codechef.com/status/CIELAB,jachermocilla 
 */
 
 #include <iostream>
@@ -11,24 +11,15 @@ using namespace std;
 
 #define ull unsigned long long
 
-ull stack[1000000];
+ull stack[10];
 int top=0;
 
-ull digits(ull n){
-    ull c=0;
-    ull q=0;
-
-    top=-1;
-    while ((n=n/10)>=10){
-        //cout << (n%10);
-        top++;
-        stack[top]=(n%10);
+void digits(ull n){
+    while(n != 0){
+        int d = n % 10;
+        n = n / 10;
+        stack[top++]=d;
     }
-    //cout << (n%10);;
-    top++;
-    stack[top]=(n%10);
-
-    return c;
 }
 
 
@@ -40,18 +31,9 @@ int main(){
     int i;
 
     cin >> A >> B;
-    C = A - B;
-    cout << C << endl;
-    digits(C);
-    
-    if (top > 0){
-        for (i=top;i>=0;i--)
-            cout << stack[i];
-    }
-    cout << 7;
-
-
-
-
+    if (((A-B)%10)<9)
+        cout << (A-B+1);
+    else
+        cout << (A-B-1);
     return 0;
 }
