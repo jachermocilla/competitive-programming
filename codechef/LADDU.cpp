@@ -28,7 +28,10 @@ int main(){
             cin >> act;
             if (act.compare("CONTEST_WON")==0){
                 cin >> c;
-                total += (300 + (20-c));
+                if (c <= 20)
+                    total += (300 + (20-c));
+                else
+                    total += 300;
             }
             else if (act.compare("TOP_CONTRIBUTOR")==0){
                 total += 300;
