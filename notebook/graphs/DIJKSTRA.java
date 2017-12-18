@@ -1,10 +1,8 @@
+//http://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
-
-
-
-
 
 public class DIJKSTRA{
    private int n;
