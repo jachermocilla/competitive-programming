@@ -102,8 +102,19 @@ public class MINHEAP{
       }
 
       pq=new MINHEAP(nodes);
+
+
+      System.out.println("-----------------");
       pq.printNodes();
       HEAPNODE min=pq.extractMin();
+      System.out.println(min.i+":"+min.k);
+      System.out.println("-----------------");
+      pq.printNodes();
+      min=pq.extractMin();
+      System.out.println(min.i+":"+min.k);
+      System.out.println("-----------------");
+      pq.printNodes();
+      min=pq.extractMin();
       System.out.println(min.i+":"+min.k);
    }
 
