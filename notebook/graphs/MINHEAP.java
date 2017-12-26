@@ -2,7 +2,6 @@
 import java.io.*; //for I/O
 import java.util.Random;
 
-
 class HEAPNODE{
    public int i;
    public int k;
@@ -99,7 +98,6 @@ public class MINHEAP{
       Random r=new Random();
       for (int i=0;i<5;i++){
          int k=r.nextInt(10)+1;
-         //System.out.println(i+":"+k);
          nodes[i]=new HEAPNODE(i,k);
       }
 
