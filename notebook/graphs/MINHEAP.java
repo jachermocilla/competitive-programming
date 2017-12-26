@@ -60,17 +60,18 @@ public class MINHEAP{
       A[i].k = key; 
    }
 
-   public int extractMin(){
-      int min;          
+   public HEAPNODE extractMin(){
+      HEAPNODE min;          
       if(n < 1){            
          System.out.println("error");
-         return -1; 
+         return null; 
       }
       else{
-         min = A[0].k;
+         min = new HEAPNODE(A[0].i,A[0].k);
          A[0].k = A[n-1].k;         
          n--;                 
          heapify(0);          
+         //return min;          
          return min;          
       }
    }
@@ -95,9 +96,10 @@ public class MINHEAP{
       }
 
       pq=new MINHEAP(nodes);
-      System.out.println(pq.extractMin());
-      pq.insert(1);
-      System.out.println(pq.extractMin());
+      HEAPNODE min=pq.extractMin();
+      System.out.println(min.i);
+      //pq.insert(1);
+      //System.out.println(pq.extractMin());
    }
 
 }
