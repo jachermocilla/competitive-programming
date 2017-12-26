@@ -1,5 +1,7 @@
 //Adapted from: https://www.unf.edu/~wkloster/3540/heap.java
 import java.io.*; //for I/O
+import java.util.Random;
+
 
 class HEAPNODE{
    public int i;
@@ -16,7 +18,7 @@ public class MINHEAP{
    public int n;              
    
    public MINHEAP(HEAPNODE B[]) throws IOException {
-      A = new String[B.length];        
+      A = new HEAPNODE[B.length];        
       System.arraycopy(B,0,A,0,B.length); 
       n = A.length;           
       for(int i=n/2-1; i>=0; i--){
@@ -82,9 +84,17 @@ public class MINHEAP{
    }
 
    public static void main(String args[]) throws IOException{
-      int data[]={5,4,3,2}; 
+      HEAPNODE nodes[]=new HEAPNODE[5];
       MINHEAP pq; 
-      pq=new MINHEAP(data);
+      
+      Random r=new Random();
+      for (int i=0;i<5;i++){
+         int k=r.nextInt(10)+1;
+         System.out.println(i+":"+k);
+         nodes[i]=new HEAPNODE(i,k);
+      }
+
+      pq=new MINHEAP(nodes);
       System.out.println(pq.extractMin());
       pq.insert(1);
       System.out.println(pq.extractMin());
