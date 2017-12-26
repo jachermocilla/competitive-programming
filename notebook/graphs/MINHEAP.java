@@ -1,11 +1,22 @@
 //Adapted from: https://www.unf.edu/~wkloster/3540/heap.java
 import java.io.*; //for I/O
+
+class HEAPNODE{
+   public int i;
+   public int k;
+   public HEAPNODE(int i, int k){
+      this.i = i;
+      this.k = k;
+   }
+}
+
 public class MINHEAP{
-   public int [] A;            
+
+   public HEAPNODE [] A;            
    public int n;              
    
-   public MINHEAP(int B[]) throws IOException {
-      A = new int[B.length];        
+   public MINHEAP(HEAPNODE B[]) throws IOException {
+      A = new String[B.length];        
       System.arraycopy(B,0,A,0,B.length); 
       n = A.length;           
       for(int i=n/2-1; i>=0; i--){
@@ -19,18 +30,18 @@ public class MINHEAP{
       left = 2 * i + 1;         
       r = 2 * i + 2;            
 
-      if(left < n && A[left] < A[i]) 
+      if(left < n && A[left].k < A[i].k) 
          min = left;               
       else
          min = i;
 
-      if(r < n && A[r] < A[min])
+      if(r < n && A[r].k < A[min].k)
          min = r;               
 
       if(min != i){           
-         tmp = A[i];          
-         A[i] = A[min];
-         A[min] = tmp;
+         tmp = A[i].k;          
+         A[i].k = A[min].k;
+         A[min].k = tmp;
          heapify(min); 
       }
    }
@@ -40,11 +51,11 @@ public class MINHEAP{
       n++;              
       i = n-1;                                
 
-      while(i > 0 && A[(i-1)/2] > key){
+      while(i > 0 && A[(i-1)/2].k > key){
          A[i] = A[(i-1)/2];
          i = (i-1)/2;
       }
-      A[i] = key; 
+      A[i].k = key; 
    }
 
    public int extractMin(){
@@ -54,8 +65,8 @@ public class MINHEAP{
          return -1; 
       }
       else{
-         min = A[0];
-         A[0] = A[n-1];         
+         min = A[0].k;
+         A[0].k = A[n-1].k;         
          n--;                 
          heapify(0);          
          return min;          
