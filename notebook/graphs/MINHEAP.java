@@ -27,8 +27,9 @@ public class MINHEAP{
    }
 
    public void heapify(int i){  
-      int left, r, min, tmp;    
-
+      int left, r, min;  
+      HEAPNODE tmp;
+  
       left = 2 * i + 1;         
       r = 2 * i + 2;            
 
@@ -41,9 +42,9 @@ public class MINHEAP{
          min = r;               
 
       if(min != i){           
-         tmp = A[i].k;          
-         A[i].k = A[min].k;
-         A[min].k = tmp;
+         tmp = A[i];          
+         A[i] = A[min];
+         A[min] = tmp;
          heapify(min); 
       }
    }
@@ -84,6 +85,13 @@ public class MINHEAP{
          return 0;         
    }
 
+   public void printNodes(){
+      for (int i=0;i<n;i++){
+         System.out.println(A[i].i+":"+A[i].k);
+      } 
+   }
+
+
    public static void main(String args[]) throws IOException{
       HEAPNODE nodes[]=new HEAPNODE[5];
       MINHEAP pq; 
@@ -91,15 +99,14 @@ public class MINHEAP{
       Random r=new Random();
       for (int i=0;i<5;i++){
          int k=r.nextInt(10)+1;
-         System.out.println(i+":"+k);
+         //System.out.println(i+":"+k);
          nodes[i]=new HEAPNODE(i,k);
       }
 
       pq=new MINHEAP(nodes);
+      pq.printNodes();
       HEAPNODE min=pq.extractMin();
-      System.out.println(min.i);
-      //pq.insert(1);
-      //System.out.println(pq.extractMin());
+      System.out.println(min.i+":"+min.k);
    }
 
 }
