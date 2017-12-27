@@ -16,7 +16,6 @@ class Vertex{
    public Vertex(String name){
       this.name=name;
    } 
-   
 }
 
 
