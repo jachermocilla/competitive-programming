@@ -116,7 +116,7 @@ public class MINHEAP{
       pq.printNodes();
       min=pq.extractMin();
       System.out.println(min.i+":"+min.k);
-      pq.insert(7,7);
+      pq.insert(50,7);
       System.out.println("-----------------");
       pq.printNodes();
       min=pq.extractMin();
