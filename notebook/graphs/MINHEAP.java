@@ -47,7 +47,7 @@ public class MINHEAP{
       }
    }
 
-   public void insert(int key){         
+   public void insert(int j, int key){         
       int i;            
       n++;              
       i = n-1;                                
@@ -57,6 +57,7 @@ public class MINHEAP{
          i = (i-1)/2;
       }
       A[i].k = key; 
+      A[i].i = j; 
    }
 
    public HEAPNODE extractMin(){
@@ -115,6 +116,12 @@ public class MINHEAP{
       pq.printNodes();
       min=pq.extractMin();
       System.out.println(min.i+":"+min.k);
+      pq.insert(7,7);
+      System.out.println("-----------------");
+      pq.printNodes();
+      min=pq.extractMin();
+      System.out.println(min.i+":"+min.k);
+      
    }
 
 }
