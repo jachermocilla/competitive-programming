@@ -35,6 +35,10 @@ public class DIJKSTRA{
    }
 
    public void _dijkstra(int s){
+      HEAPNODES nodes[]=new HEAPNODE[n];
+      MINHEAP pq;
+      
+   
    }
 
    public void print(){
