@@ -28,15 +28,20 @@ class Graph{
 
    public void dijkstra(Vertex source) {
       source.d=0;
- 
+      
       Set<Vertex> done = new HashSet<>();
-      Set<Vertex> notDone = new HashSet<>(); //a priority queue may be better
+      Queue<Vertex> notDone = new PriorityQueue<>(
+                                 100000,
+                                 new Comparator<Vertex>(){
+                                    public int compare(Vertex v1, Vertex v2){
+                                       return (v1.d-v2.d);
+                                    }
+                                 }
+                              ); 
  
       notDone.add(source);
- 
       while (notDone.size() != 0) {
-         Vertex u = getMinV(notDone);
-         notDone.remove(u);
+         Vertex u = notDone.poll();
          for (Map.Entry <Vertex, Integer> pair:u.adj.entrySet()) {
             Vertex v = pair.getKey();
             Integer w = pair.getValue();
@@ -47,18 +52,6 @@ class Graph{
          }
          done.add(u);
       }
-   }
-
-   private Vertex getMinV(Set<Vertex> notDone) {
-       Vertex min = null;
-       int d = Integer.MAX_VALUE;
-       for (Vertex v: notDone) {
-           if (v.d < d) {
-               d = v.d;
-               min = v;
-           }
-       }
-       return min;
    }
 
    private void calculateMinimumDistance(Vertex v,Integer w, Vertex u) {
@@ -72,11 +65,9 @@ class Graph{
 }
 
 
-
 public class DIJKSTRA{
 
    public static void main(String args[]){
-
       Vertex n0 = new Vertex("0");
       Vertex n1 = new Vertex("1");
       Vertex n2 = new Vertex("2");
