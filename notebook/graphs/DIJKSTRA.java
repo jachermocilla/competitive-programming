@@ -35,7 +35,7 @@ class Graph{
       notDone.add(source);
  
       while (notDone.size() != 0) {
-         Vertex u = getLowestDistanceNode(notDone);
+         Vertex u = getMinV(notDone);
          notDone.remove(u);
          for (Map.Entry <Vertex, Integer> pair:u.adj.entrySet()) {
             Vertex v = pair.getKey();
@@ -49,26 +49,24 @@ class Graph{
       }
    }
 
-   private Vertex getLowestDistanceNode(Set < Vertex > unsettledNodes) {
-       Vertex lowestDistanceNode = null;
-       int lowestDistance = Integer.MAX_VALUE;
-       for (Vertex v: unsettledNodes) {
-           int nodeDistance = v.d;
-           if (nodeDistance < lowestDistance) {
-               lowestDistance = nodeDistance;
-               lowestDistanceNode = v;
+   private Vertex getMinV(Set<Vertex> notDone) {
+       Vertex min = null;
+       int d = Integer.MAX_VALUE;
+       for (Vertex v: notDone) {
+           if (v.d < d) {
+               d = v.d;
+               min = v;
            }
        }
-       return lowestDistanceNode;
+       return min;
    }
 
-   private static void calculateMinimumDistance(Vertex evaluationNode,Integer edgeWeigh, Vertex sourceNode) {
-      Integer sourceDistance = sourceNode.d;
-      if (sourceDistance + edgeWeigh < evaluationNode.d) {
-         evaluationNode.d=sourceDistance + edgeWeigh;
-         LinkedList<Vertex> shortestPath = new LinkedList<>(sourceNode.sp);
-         shortestPath.add(sourceNode);
-         evaluationNode.sp=shortestPath;
+   private void calculateMinimumDistance(Vertex v,Integer w, Vertex u) {
+      if (u.d + w < v.d) {
+         v.d = u.d + w;
+         LinkedList<Vertex> sp = new LinkedList<>(u.sp);
+         sp.add(u);
+         v.sp=sp;
       }
    }
 }
