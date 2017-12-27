@@ -30,13 +30,13 @@ class Graph{
       
       Set<Vertex> done = new HashSet<>();
       Queue<Vertex> notDone = new PriorityQueue<>(
-                                 100000,
-                                 new Comparator<Vertex>(){
-                                    public int compare(Vertex v1, Vertex v2){
-                                       return (v1.d-v2.d);
-                                    }
+                              100000,
+                              new Comparator<Vertex>(){
+                                 public int compare(Vertex v1, Vertex v2){
+                                    return (v1.d-v2.d);
                                  }
-                              ); 
+                              }
+                           ); 
  
       notDone.add(source);
       while (notDone.size() != 0) {
@@ -45,7 +45,12 @@ class Graph{
             Vertex v = pair.getKey();
             Integer d = pair.getValue();
             if (!done.contains(v)) {
-               updateSP(u, v, d);
+               if (u.d + d < v.d) {
+                  v.d = u.d + d;
+                  LinkedList<Vertex> sp = new LinkedList<>(u.sp);
+                  sp.add(u);
+                  v.sp=sp;
+               }
                notDone.add(v);
             }
          }
@@ -53,19 +58,12 @@ class Graph{
       }
    }
 
-   private void updateSP(Vertex u, Vertex v, Integer d) {
-      if (u.d + d < v.d) {
-         v.d = u.d + d;
-         LinkedList<Vertex> sp = new LinkedList<>(u.sp);
-         sp.add(u);
-         v.sp=sp;
-      }
-   }
 }
 
 
 public class DIJKSTRA{
    public static void main(String args[]){
+      //Test input from: 
       //https://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
       Vertex n0 = new Vertex("0");
       Vertex n1 = new Vertex("1");
