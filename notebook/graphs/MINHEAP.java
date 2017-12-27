@@ -12,7 +12,6 @@ class HEAPNODE{
 }
 
 public class MINHEAP{
-
    public HEAPNODE [] A;            
    public int n;              
    
@@ -68,7 +67,8 @@ public class MINHEAP{
       }
       else{
          min = new HEAPNODE(A[0].i,A[0].k);
-         A[0].k = A[n-1].k;         
+         //A[0].k = A[n-1].k;         
+         A[0] = A[n-1];         
          n--;                 
          heapify(0);          
          //return min;          
@@ -102,7 +102,6 @@ public class MINHEAP{
       }
 
       pq=new MINHEAP(nodes);
-
 
       System.out.println("-----------------");
       pq.printNodes();
