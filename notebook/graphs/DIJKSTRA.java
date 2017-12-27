@@ -29,24 +29,23 @@ class Graph{
    public void dijkstra(Vertex source) {
       source.d=0;
  
-      Set<Vertex> settledNodes = new HashSet<>();
-      Set<Vertex> unsettledNodes = new HashSet<>();
+      Set<Vertex> done = new HashSet<>();
+      Set<Vertex> notDone = new HashSet<>(); //a priority queue may be better
  
-      unsettledNodes.add(source);
+      notDone.add(source);
  
-      while (unsettledNodes.size() != 0) {
-         Vertex currentNode = getLowestDistanceNode(unsettledNodes);
-         unsettledNodes.remove(currentNode);
-         for (Map.Entry < Vertex, Integer> adjacencyPair: 
-            currentNode.adj.entrySet()) {
-               Vertex adjacentNode = adjacencyPair.getKey();
-               Integer edgeWeight = adjacencyPair.getValue();
-               if (!settledNodes.contains(adjacentNode)) {
-                  calculateMinimumDistance(adjacentNode, edgeWeight, currentNode);
-                  unsettledNodes.add(adjacentNode);
-               }
+      while (notDone.size() != 0) {
+         Vertex u = getLowestDistanceNode(notDone);
+         notDone.remove(u);
+         for (Map.Entry <Vertex, Integer> pair:u.adj.entrySet()) {
+            Vertex v = pair.getKey();
+            Integer w = pair.getValue();
+            if (!done.contains(v)) {
+               calculateMinimumDistance(v, w, u);
+               notDone.add(v);
+            }
          }
-         settledNodes.add(currentNode);
+         done.add(u);
       }
    }
 
