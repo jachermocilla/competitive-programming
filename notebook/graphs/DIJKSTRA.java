@@ -1,5 +1,6 @@
 //http://www.baeldung.com/java-dijkstra
 //https://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
+//
 
 import java.util.*;
 
@@ -42,11 +43,11 @@ class Graph{
       notDone.add(source);
       while (notDone.size() != 0) {
          Vertex u = notDone.poll();
-         for (Map.Entry <Vertex, Integer> pair:u.adj.entrySet()) {
+         for (Map.Entry<Vertex, Integer> pair: u.adj.entrySet()) {
             Vertex v = pair.getKey();
-            Integer w = pair.getValue();
+            Integer d = pair.getValue();
             if (!done.contains(v)) {
-               calculateMinimumDistance(v, w, u);
+               updateSP(u, v, d);
                notDone.add(v);
             }
          }
@@ -54,9 +55,9 @@ class Graph{
       }
    }
 
-   private void calculateMinimumDistance(Vertex v,Integer w, Vertex u) {
-      if (u.d + w < v.d) {
-         v.d = u.d + w;
+   private void updateSP(Vertex u, Vertex v, Integer d) {
+      if (u.d + d < v.d) {
+         v.d = u.d + d;
          LinkedList<Vertex> sp = new LinkedList<>(u.sp);
          sp.add(u);
          v.sp=sp;
@@ -66,7 +67,6 @@ class Graph{
 
 
 public class DIJKSTRA{
-
    public static void main(String args[]){
       Vertex n0 = new Vertex("0");
       Vertex n1 = new Vertex("1");
@@ -114,6 +114,7 @@ public class DIJKSTRA{
       n8.add(n7,7);
 
       Graph g=new Graph();
+
       g.add(n0);
       g.add(n1);
       g.add(n2);
@@ -124,11 +125,14 @@ public class DIJKSTRA{
       g.add(n7);
       g.add(n8);
 
- 
       g.dijkstra(n0);
 
       for (Vertex v:g.V){
          System.out.println(v.name+":"+v.d);
+         for (Vertex a: v.sp){
+            System.out.print(a.name+"->");
+         }
+         System.out.println(v.name);
       } 
    }
 }
