@@ -1,6 +1,4 @@
 //http://www.baeldung.com/java-dijkstra
-//https://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
-//
 
 import java.util.*;
 
@@ -68,6 +66,7 @@ class Graph{
 
 public class DIJKSTRA{
    public static void main(String args[]){
+      //https://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
       Vertex n0 = new Vertex("0");
       Vertex n1 = new Vertex("1");
       Vertex n2 = new Vertex("2");
