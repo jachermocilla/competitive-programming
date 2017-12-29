@@ -17,6 +17,10 @@ class Vertex{
    public Vertex(String name){
       this.name=name;
    } 
+   
+   public String toString(){
+      return name;
+   } 
 }
 
 
@@ -25,6 +29,18 @@ class Graph{
 
    public void add(Vertex v){
       V.add(v);
+   }
+   
+   public void print(){
+      for (Vertex u: V){
+         System.out.print(u+":");
+         for (Map.Entry<Vertex, Integer> pair: u.adj.entrySet()) {
+            Vertex v = pair.getKey();
+            Integer d = pair.getValue();
+            System.out.print("("+v+","+d+")");
+         }
+         System.out.println();
+      }
    }
 
    public void dijkstra(Vertex source) {
@@ -58,6 +74,16 @@ class Graph{
          }
          done.add(u);
       }
+   }
+   
+   public void printSP(){
+      for (Vertex v:V){
+         System.out.println(v.name+":"+v.d);
+         for (Vertex a: v.sp){
+            System.out.print(a.name+"->");
+         }
+         System.out.println(v.name);
+      } 
    }
 
 }
@@ -127,17 +153,13 @@ public class DIJKSTRA{
       g.add(n7);
       g.add(n8);
 
+
+      g.print();
       g.dijkstra(n0);
+      g.printSP();
 
       final long endTime = System.currentTimeMillis();
       System.out.println("Total execution time: " + (endTime - startTime)+" ms" );
 
-      for (Vertex v:g.V){
-         System.out.println(v.name+":"+v.d);
-         for (Vertex a: v.sp){
-            System.out.print(a.name+"->");
-         }
-         System.out.println(v.name);
-      } 
    }
 }
