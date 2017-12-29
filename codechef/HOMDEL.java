@@ -1,5 +1,7 @@
 //TODO:https://www.codechef.com/problems/HOMDEL
 //Status: TLE
+//https://www.codechef.com/status/HOMDEL,jachermocilla
+
 
 import java.util.*;
 import java.io.*;
