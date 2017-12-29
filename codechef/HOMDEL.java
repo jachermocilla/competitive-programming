@@ -107,9 +107,8 @@ public class HOMDEL{
             j++;
          } 
       }
-  
       g.print(); 
-      
+/*      
       M = Integer.parseInt(bi.readLine());
       System.out.println(M);
       for (int i=0;i<M;i++){
@@ -124,10 +123,12 @@ public class HOMDEL{
                System.out.println(v.d);
          }
       }
-
+*/
 
       final long endTime = System.currentTimeMillis();
       System.out.println("Total execution time: " + (endTime - startTime)+" ms" );
+
+      g.dijkstra(V[0]);
 
       for (Vertex v:g.V){
          System.out.println(v.name+":"+v.d);
