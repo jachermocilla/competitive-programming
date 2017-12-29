@@ -1,6 +1,5 @@
-//http://www.baeldung.com/java-dijkstra
-
 //TODO:https://www.codechef.com/problems/HOMDEL
+//Status: UNSOLVED
 
 import java.util.*;
 import java.io.*;
@@ -17,6 +16,10 @@ class Vertex{
 
    public Vertex(String name){
       this.name=name;
+   }
+   
+   public String toString(){
+      return name;
    } 
 }
 
@@ -26,6 +29,19 @@ class Graph{
 
    public void add(Vertex v){
       V.add(v);
+   }
+
+
+   public void print(){
+      for (Vertex u: V){
+         System.out.print(u+":");
+         for (Map.Entry<Vertex, Integer> pair: u.adj.entrySet()) {
+            Vertex v = pair.getKey();
+            Integer d = pair.getValue();
+            System.out.print("("+v+","+d+")");
+         }
+         System.out.println();
+      }
    }
 
    public void dijkstra(Vertex source) {
@@ -68,21 +84,47 @@ public class HOMDEL{
    public static void main(String args[]) throws IOException{
       
       final long startTime = System.currentTimeMillis();
+      Graph g=new Graph();
 
-      int N,M,S,G,D;
+      int N,M,SGD[]=new int[3];
 
       BufferedReader bi = new BufferedReader(new InputStreamReader(System.in));
       String line;
 
       N = Integer.parseInt(bi.readLine());
+      Vertex V[]=new Vertex[N];       
+      for (int i=0;i<N;i++){
+         V[i]=new Vertex(i+"");
+         g.add(V[i]);
+      }
+
       System.out.println(N);
       for (int i=0;i<N;i++){
-         String line=bi.readLine();
-         
+         line=bi.readLine();
+         int j=0;
+         for (String numStr: line.split("\\s")){
+            V[i].add(V[j],Integer.parseInt(numStr));
+            j++;
+         } 
       }
-   
-/*
-      g.dijkstra(n0);
+  
+      g.print(); 
+      
+      M = Integer.parseInt(bi.readLine());
+      System.out.println(M);
+      for (int i=0;i<M;i++){
+         line=bi.readLine();
+         int j=0;
+         for (String numStr: line.split("\\s")){
+            SGD[j++]=Integer.parseInt(numStr);
+         }
+         g.dijkstra(V[SGD[0]]);
+         for (Vertex v:g.V){
+            if (v.equals(V[SGD[1]]))
+               System.out.println(v.d);
+         }
+      }
+
 
       final long endTime = System.currentTimeMillis();
       System.out.println("Total execution time: " + (endTime - startTime)+" ms" );
@@ -94,6 +136,5 @@ public class HOMDEL{
          }
          System.out.println(v.name);
       } 
-*/
    }
 }
