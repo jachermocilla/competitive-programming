@@ -3,6 +3,7 @@
 //TODO:https://www.codechef.com/problems/HOMDEL
 
 import java.util.*;
+import java.io.*;
 
 class Vertex{
    public String name;
@@ -63,70 +64,24 @@ class Graph{
 }
 
 
-public class DIJKSTRA{
-   public static void main(String args[]){
-      //Test input from: 
-      //https://www.geeksforgeeks.org/greedy-algorithms-set-7-dijkstras-algorithm-for-adjacency-list-representation/
+public class HOMDEL{
+   public static void main(String args[]) throws IOException{
       
       final long startTime = System.currentTimeMillis();
 
-      Vertex n0 = new Vertex("0");
-      Vertex n1 = new Vertex("1");
-      Vertex n2 = new Vertex("2");
-      Vertex n3 = new Vertex("3"); 
-      Vertex n4 = new Vertex("4");
-      Vertex n5 = new Vertex("5");
-      Vertex n6 = new Vertex("6");
-      Vertex n7 = new Vertex("7");
-      Vertex n8 = new Vertex("8");
+      int N,M,S,G,D;
+
+      BufferedReader bi = new BufferedReader(new InputStreamReader(System.in));
+      String line;
+
+      N = Integer.parseInt(bi.readLine());
+      System.out.println(N);
+      for (int i=0;i<N;i++){
+         String line=bi.readLine();
+         
+      }
    
-      n0.add(n1,4);
-      n0.add(n7,8);
-
-      n1.add(n2,8);
-      n1.add(n7,11);
-
-      n2.add(n1,8);
-      n2.add(n3,7);
-      n2.add(n8,2);
-
-      n3.add(n2,7);
-      n3.add(n4,9);
-      n3.add(n5,14);
-
-      n4.add(n3,9);
-      n4.add(n5,10);
-
-      n5.add(n2,4);
-      n5.add(n3,14);
-      n5.add(n4,10);
-      n5.add(n6,2);
-
-      n6.add(n5,2);
-      n6.add(n7,1);
-      n6.add(n8,6);
-      
-      n7.add(n0,8);
-      n7.add(n1,11);
-      n7.add(n6,1);
-      n7.add(n8,7);
-
-      n8.add(n2,2);
-      n8.add(n6,6);
-      n8.add(n7,7);
-
-      Graph g=new Graph();
-
-      g.add(n0);
-      g.add(n1);
-      g.add(n2);
-      g.add(n3);
-      g.add(n4);
-      g.add(n5);
-      g.add(n6);
-      g.add(n7);
-      g.add(n8);
-
+/*
       g.dijkstra(n0);
 
       final long endTime = System.currentTimeMillis();
@@ -139,5 +94,6 @@ public class DIJKSTRA{
          }
          System.out.println(v.name);
       } 
+*/
    }
 }
