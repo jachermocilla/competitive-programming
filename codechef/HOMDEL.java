@@ -9,6 +9,13 @@ class Vertex{
    public List<Vertex> sp=new LinkedList<>();
    public Integer d = Integer.MAX_VALUE;
    public Map<Vertex,Integer> adj = new HashMap<>();
+
+   public Vertex(Vertex v){
+      this.name=v.name;
+      this.sp=v.sp;
+      this.d=v.d;
+      this.adj=v.adj;
+   }
    
    public void add(Vertex v, int d){
       adj.put(v,d);
@@ -27,10 +34,16 @@ class Vertex{
 class Graph{
    public Set<Vertex> V=new HashSet<>();
 
+   public Graph(Graph g){
+      this.V=g.V;
+   }
+
+   public Graph(){}
+
+
    public void add(Vertex v){
       V.add(v);
    }
-
 
    public void print(){
       for (Vertex u: V){
@@ -108,7 +121,8 @@ public class HOMDEL{
          } 
       }
       g.print(); 
-/*      
+     
+ 
       M = Integer.parseInt(bi.readLine());
       System.out.println(M);
       for (int i=0;i<M;i++){
@@ -117,18 +131,19 @@ public class HOMDEL{
          for (String numStr: line.split("\\s")){
             SGD[j++]=Integer.parseInt(numStr);
          }
-         g.dijkstra(V[SGD[0]]);
-         for (Vertex v:g.V){
-            if (v.equals(V[SGD[1]]))
+         Graph g2=g;
+         g2.dijkstra(V[SGD[0]]);
+         for (Vertex v:g2.V){
+            if (v.equals(V[SGD[2]]))
                System.out.println(v.d);
          }
       }
-*/
+
 
       final long endTime = System.currentTimeMillis();
       System.out.println("Total execution time: " + (endTime - startTime)+" ms" );
 
-      g.dijkstra(V[0]);
+      g.dijkstra(V[2]);
 
       for (Vertex v:g.V){
          System.out.println(v.name+":"+v.d);
