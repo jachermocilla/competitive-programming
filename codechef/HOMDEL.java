@@ -1,5 +1,5 @@
 //TODO:https://www.codechef.com/problems/HOMDEL
-//Status: UNSOLVED
+//Status: TLE
 
 import java.util.*;
 import java.io.*;
@@ -14,7 +14,7 @@ class Vertex{
       this.name=v.name;
       this.sp=v.sp;
       this.d=v.d;
-      this.adj=v.adj;
+      this.adj.putAll(v.adj);
    }
    
    public void add(Vertex v, int d){
@@ -35,7 +35,7 @@ class Graph{
    public Set<Vertex> V=new HashSet<>();
 
    public Graph(Graph g){
-      this.V=g.V;
+      this.V.addAll(g.V);
    }
 
    public Graph(){}
@@ -90,17 +90,27 @@ class Graph{
       }
    }
 
+   public void printSP(){
+      for (Vertex v:V){
+         System.out.println(v.name+":"+v.d);
+         for (Vertex a: v.sp){
+            System.out.print(a.name+"->");
+         }
+         System.out.println(v.name);
+      } 
+   }
+
 }
 
 
-public class HOMDEL{
+class HOMDEL{
+
    public static void main(String args[]) throws IOException{
       
       final long startTime = System.currentTimeMillis();
+
       Graph g=new Graph();
-
       int N,M,SGD[]=new int[3];
-
       BufferedReader bi = new BufferedReader(new InputStreamReader(System.in));
       String line;
 
@@ -111,46 +121,96 @@ public class HOMDEL{
          g.add(V[i]);
       }
 
-      System.out.println(N);
+      List<String> lines=new ArrayList<String>();
       for (int i=0;i<N;i++){
          line=bi.readLine();
+         lines.add(line);
          int j=0;
          for (String numStr: line.split("\\s")){
             V[i].add(V[j],Integer.parseInt(numStr));
             j++;
          } 
       }
-      g.print(); 
      
- 
       M = Integer.parseInt(bi.readLine());
-      System.out.println(M);
       for (int i=0;i<M;i++){
          line=bi.readLine();
          int j=0;
          for (String numStr: line.split("\\s")){
-            SGD[j++]=Integer.parseInt(numStr);
+            SGD[j]=Integer.parseInt(numStr);
+            j++;
          }
-         Graph g2=g;
-         g2.dijkstra(V[SGD[0]]);
-         for (Vertex v:g2.V){
-            if (v.equals(V[SGD[2]]))
-               System.out.println(v.d);
-         }
-      }
 
+         int t=0;
+
+         String arr[]=lines.toArray(new String[lines.size()]);
+
+//--------------------------
+         Graph g2=new Graph();
+         Vertex V2[]=new Vertex[N];       
+         for (int i2=0;i2<N;i2++){
+            V2[i2]=new Vertex(i2+"");
+            g2.add(V2[i2]);
+         }
+         for (int i2=0;i2<N;i2++){
+            int j2=0;
+            for (String numStr: arr[i2].split("\\s")){
+               V2[i2].add(V2[j2],Integer.parseInt(numStr));
+               j2++;
+            } 
+         }
+
+         g2.dijkstra(V2[SGD[0]]);
+         for (Vertex v:g2.V){
+            if (v.equals(V2[SGD[1]])){
+               t+=v.d;
+            }
+         }
+//--------------------------
+         Graph g3=new Graph();
+         Vertex V3[]=new Vertex[N];       
+         for (int i3=0;i3<N;i3++){
+            V3[i3]=new Vertex(i3+"");
+            g3.add(V3[i3]);
+         }
+         for (int i3=0;i3<N;i3++){
+            int j3=0;
+            for (String numStr: arr[i3].split("\\s")){
+               V3[i3].add(V3[j3],Integer.parseInt(numStr));
+               j3++;
+            } 
+         }
+         g3.dijkstra(V3[SGD[1]]);
+         for (Vertex v:g3.V){
+            if (v.equals(V3[SGD[2]])){
+               t+=v.d;
+            }
+         }
+//--------------------------
+         int x=0;
+         Graph g4=new Graph();
+         Vertex V4[]=new Vertex[N];       
+         for (int i4=0;i4<N;i4++){
+            V4[i4]=new Vertex(i4+"");
+            g4.add(V4[i4]);
+         }
+         for (int i4=0;i4<N;i4++){
+            int j4=0;
+            for (String numStr: arr[i4].split("\\s")){
+               V4[i4].add(V4[j4],Integer.parseInt(numStr));
+               j4++;
+            } 
+         }
+         g4.dijkstra(V4[SGD[0]]);
+         for (Vertex v:g4.V){
+            if (v.equals(V4[SGD[2]])){
+               x=v.d;
+            }
+         }
+         System.out.println(t+" "+(t-x));
+      }
 
       final long endTime = System.currentTimeMillis();
       System.out.println("Total execution time: " + (endTime - startTime)+" ms" );
-
-      g.dijkstra(V[2]);
-
-      for (Vertex v:g.V){
-         System.out.println(v.name+":"+v.d);
-         for (Vertex a: v.sp){
-            System.out.print(a.name+"->");
-         }
-         System.out.println(v.name);
-      } 
    }
 }
