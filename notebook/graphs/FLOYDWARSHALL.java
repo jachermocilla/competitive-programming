@@ -85,6 +85,7 @@ class FLOYDWARSHALL
       
       FLOYDWARSHALL a = new FLOYDWARSHALL(graph);
       a.floydWarshall();
-      a.printSolution(); 
+      a.printSolution();
+      System.out.println(a.getSP(1,3)); 
    }
 }
