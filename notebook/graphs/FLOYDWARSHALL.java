@@ -59,8 +59,12 @@ class FLOYDWARSHALL
       }
    }
  
+   
+   public int getSP(int u,int v){
+      return d[u][v];
+   }
 
-   void printSolution(){
+   public void printSolution(){
       for (int i=0; i<n; ++i){
          for (int j=0; j<n; ++j){
                 if (d[i][j]==INF)
