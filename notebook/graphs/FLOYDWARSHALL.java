@@ -42,12 +42,6 @@ class FLOYDWARSHALL
 
 
    public void floydWarshall(){
-      /* 
-      for (i = 0; i < V; i++)
-         for (j = 0; j < V; j++)
-            dist[i][j] = graph[i][j];
-      */
-
       for (int k = 0; k < n; k++){
          for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
