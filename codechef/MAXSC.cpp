@@ -31,10 +31,11 @@ int main(){
          }
          if (pmax>cmax){
             nope=1;
-            break;
          }
-         pmax=cmax;
-         sum+=pmax;
+         else{
+            pmax=cmax;
+            sum+=pmax;
+         }
          //cout << endl;
       }
       if (!nope)
