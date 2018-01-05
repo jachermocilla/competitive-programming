@@ -10,19 +10,20 @@
 using namespace std;
 
 #define ull unsigned long long
+#define ul unsigned long 
 
 int main(){
-    int n,i,j,k,t,pmax,cmax;
-    int T,N,M,sum;
-    int nope=0;
+    ull n,i,j,k,t,pmax,cmax;
+    ull T,N,M,sum;
+    ull nope=0;
 
     cin >> T;
     for (t=0;t<T;t++){
       cin >> N;
       sum=0;
-      pmax=-1;
+      pmax=0;
       for (j=0;j<N;j++){
-         cmax=-1;
+         cmax=0;
          for (k=0;k<N;k++){
             cin >> n;
             //cout << t;
