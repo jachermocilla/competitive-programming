@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,36 +16,42 @@ using namespace std;
 int main(){
     ull n,i,j,k,t,pmax,cmax;
     ull T,N,M,sum;
-    ull nope=0;
+    ull row[700],nope=0;
+    ull row_max=0,prev_max=0;
 
     cin >> T;
     for (t=0;t<T;t++){
       cin >> N;
       sum=0;
-      pmax=0;
+      prev_max=0;
       for (j=0;j<N;j++){
          cmax=0;
          for (k=0;k<N;k++){
-            cin >> n;
-            //cout << t;
-            if (n > cmax)
-               cmax=n;
+            cin >> row[k];
          }
-         //cout << "pmax " << pmax << endl;
-         //cout << "cmax " << cmax << endl;
-         if (cmax < pmax){
-            nope=1;
+         sort(row,row+N);
+         row_max=row[N-1];
+         if (row_max>prev_max){
+            prev_max=row_max;
+            sum+=row_max;
          }
          else{
-            pmax=cmax;
-            sum+=pmax;
+            nope=1;
+            break;
          }
-         //cout << endl;
+
+/*
+         for (k=0;k<N;k++){
+            cout << row[k] << " ";
+         }
+         cout << endl;
+*/
       }
       if (!nope)
          cout << sum << endl;
-      else 
+      else
          cout << "-1" << endl;
+
     }
 
     return 0;
