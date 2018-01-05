@@ -30,7 +30,7 @@ int main(){
             if (n > cmax)
                cmax=n;
          }
-         if (pmax>cmax){
+         if (pmax>=cmax){
             nope=1;
          }
          else{
