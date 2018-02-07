@@ -11,16 +11,29 @@ using namespace std;
 
 #define ull unsigned long long
 
+int key_search(const std::string& s, const std::string& key)
+{
+       int count = 0;
+           size_t pos=0;
+               while ((pos = s.find(key, pos)) != std::string::npos) {
+                          ++count;
+                                  ++pos;
+                                      }
+                   return count;
+}
+
 
 int main(){
     ull n,i,j,k,t;
     ull T,N,M;
     string line;      
 
-    char perm[24][5]={ "chef","hcef","echf","cehf","hecf","ehcf",
-                     "ehfc","hefc","fehc","efhc","hfec","fhec",
-                     "fceh","cfeh","efch","fech","cefh","ecfh",
-                     "hcfe","chfe","fhce","hfce","cfhe","fche"    };
+    char perm[24][5]={
+                        "chef","chfe","cehf","cefh","cfhe","cfeh",
+                        "hcfe","hcef","hefc","hecf","hfec","hfce",
+                        "echf","ecfh","ehcf","ehfc","efch","efhc",
+                        "fceh","fche","fhec","fhce","fehc","fech" 
+                     };
 
     cin >> T;
 
@@ -28,11 +41,14 @@ int main(){
       cin >> line;
       k=0;
       for (i=0;i<24;i++){
+         k+=key_search(line,perm[i]);
+ /*
          size_t found=line.find(perm[i]);
          if (found != string::npos){
             //cout << "Found:" << perm[i] << endl;
             k++;
          }
+*/
       }
       if (k > 0)
          cout << "lovely " << k << endl;
