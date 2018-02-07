@@ -2,6 +2,7 @@
  * vim: set cindent:
  * author: jachermocilla@gmail.com
  * url: https://www.codechef.com/viewsolution/17328497 
+ * source: https://codereview.stackexchange.com/questions/29611/finding-the-number-of-occurrences-of-a-string-in-another-string?rq=1
 */
 
 #include <iostream>
