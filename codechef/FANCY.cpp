@@ -1,7 +1,7 @@
 /**
  * vim: set cindent:
  * author: jachermocilla@gmail.com
- * url:  
+ * url: https://www.codechef.com/viewsolution/22315229 
 */
 
 #include <iostream>
