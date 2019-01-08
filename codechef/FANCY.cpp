@@ -27,13 +27,13 @@ int main(){
       getline(cin,s1);
       //cout << s1 << "\n";
       if (s1.find(s2) != std::string::npos){
-         cout << "Real Fancy 1" << '\n';
+         cout << "Real Fancy" << '\n';
       }
       else if (s1.find(s3) == 0){
-         cout << "Real Fancy 2" << '\n';
+         cout << "Real Fancy" << '\n';
       }
       else if (s1.find(s4) == s1.length()-4){
-         cout << "Real Fancy 3" << '\n';
+         cout << "Real Fancy" << '\n';
       }
       else{
          cout << "regularly fancy" << '\n';
