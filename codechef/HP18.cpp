@@ -1,7 +1,7 @@
-/**
+/** 
  * vim: set cindent:
  * author: jachermocilla@gmail.com
- * url: 
+ * url: (not completed)
 */
 
 #include <iostream>
