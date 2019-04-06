@@ -19,7 +19,7 @@ const int MAX_CHAR = 26;
 
 int main(){
    ull n,i,j,k,t;
-   ull T,N,M;
+   ull T,N,M,pos;
    string s,sub;
    char ch;
 
@@ -29,20 +29,34 @@ int main(){
       cin >> N;
       cin >> s;
       cin >> ch;
-            
-      if (s.find(ch)==string::npos){
+
+
+      if ((pos=s.find(ch))==string::npos){
          cout << "0" << endl;
          continue;
       }
 
       k=0;
-      for ( i = 0; i < N; i++)  
+
+
+      for (i=pos; i < N; i++)  
          for (ull len = 1; len <= N - i; len++){
             sub=s.substr(i,len);
             //cout << sub << endl;
             if (sub.find(ch)!=string::npos)
                k++;
          }
+   
+
+      
+      for (j=0; j < pos; j++)  
+         for (ull len = (pos-j); len <= N - j; len++){
+            sub=s.substr(j,len);
+            //cout << sub << endl;
+            if (sub.find(ch)!=string::npos)
+               k++;
+         }
+
       
 
       //cout << N*(N+1)/2 << endl;
