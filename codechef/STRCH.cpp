@@ -18,7 +18,7 @@ using namespace std;
 const int MAX_CHAR = 26; 
 
 int main(){
-   ull n,i,j,k,t;
+   ull n,i,j,k,t,m;
    ull T,N,M,pos;
    string s,sub;
    char ch;
@@ -30,7 +30,6 @@ int main(){
       cin >> s;
       cin >> ch;
 
-
       if ((pos=s.find(ch))==string::npos){
          cout << "0" << endl;
          continue;
@@ -38,27 +37,21 @@ int main(){
 
       k=0;
 
+      for (ull len=1; len <= N; len++){
+         for (i = 0; i <= N - len; i++){
+            j=i+len-1;
+            for (m=i;m<=j;m++){ 
+               //cout << s.at(m);
+               if (s.at(m)==ch){
+                  k++;
+                  break;
+               }
+            }
 
-      for (i=pos; i < N; i++)  
-         for (ull len = 1; len <= N - i; len++){
-            sub=s.substr(i,len);
-            //cout << sub << endl;
-            if (sub.find(ch)!=string::npos)
-               k++;
+            //cout << endl;
          }
+      }
    
-
-      
-      for (j=0; j < pos; j++)  
-         for (ull len = (pos-j); len <= N - j; len++){
-            sub=s.substr(j,len);
-            //cout << sub << endl;
-            if (sub.find(ch)!=string::npos)
-               k++;
-         }
-
-      
-
       //cout << N*(N+1)/2 << endl;
       cout << k << endl;
    }
