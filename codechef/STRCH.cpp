@@ -6,14 +6,12 @@
 
 #include <iostream>
 #include <sstream>
+#include<bits/stdc++.h> 
 
 using namespace std;
 
 #define ull unsigned long long
 
-// C++ program to find number of distinct 
-// permutations of a string. 
-#include<bits/stdc++.h> 
 using namespace std; 
 const int MAX_CHAR = 26; 
 
@@ -41,13 +39,14 @@ int main(){
       for (ull len=1; len <= N; len++){
          for (i = 0; i <= N - len; i++){
             j=i+len-1;
+
             //cout << "start: " << s.at(i) << endl;
             //cout << "end: " << s.at(j) << endl;
-            if ( i <= pos && j >= pos)
-               k++;
-            else if (s.at(i) == ch || s.at(j) == ch) 
-               k++;
-/*
+            //if ( i <= pos && j >= pos)
+            //   k++;
+            //else if (s.at(i) == ch || s.at(j) == ch) 
+            //   k++;
+
 
             int found=0;
             for (m=i;m<=j;m++){ 
@@ -59,12 +58,12 @@ int main(){
                }
             }
             cout << endl;
-*/
+
          }
       }
       cout << k << endl;
 
-      /*
+      
       cout << "----------" << endl;
       //cout << N*(N+1)/2 << endl;
       for (i=1;i<=N;i++){
@@ -72,7 +71,7 @@ int main(){
          cout << (N-k+1) << endl;
       }
 
-*/
+
    }
    return 0;
 }
