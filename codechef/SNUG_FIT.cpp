@@ -19,6 +19,7 @@ int main(){
    ull T,N,M;
    ull A[10001];
    ull B[10001];
+   ull C[10001];
 
    cin >> T;
 
@@ -28,6 +29,7 @@ int main(){
          cin >> A[n];
       for (n=0;n<N;n++)
          cin >> B[n];
+      sort(A,A+N);
       sort(B,B+N);
       sum=0;
       for (n=0;n<N;n++){
