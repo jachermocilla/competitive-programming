@@ -6,7 +6,7 @@ This repo contains my submissions to some online programming contests.
 After five failed submissions, I "cheat" by reading the editorial for a problem.
 :)
 
-BTW, I am also the self-proclaimed Team Manager of [UPLB Eliens](https://github.com/uplb-eliens).
+BTW, I am also the self-appointed Team Manager of [UPLB Eliens](https://uplb-eliens.github.io/).
 
 # Platforms
 I usually 'compete' in CodeChef's Week-long Challenge where I try to solve one or two easy problems. 
