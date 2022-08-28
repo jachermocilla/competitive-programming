@@ -8,7 +8,9 @@ After five failed submissions, I "cheat" by reading the editorial for a problem.
 
 BTW, I am also the self-proclaimed Team Manager of [UPLB Eliens](https://github.com/uplb-eliens).
 
-# My Profile on Various Platforms
+# Platforms
+I usually 'compete' in CodeChef's Week-long Challenge where try to solve one or two easy problems. 
+
 * [CodeChef](https://www.codechef.com/users/jachermocilla)
 * [Kattis](https://open.kattis.com/users/sir-jach)
 * [HackerRank](https://www.hackerrank.com/katipuzero)
