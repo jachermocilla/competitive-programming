@@ -6,7 +6,7 @@ This repo contains my submissions to some online programming contests.
 After five failed submissions, I "cheat" by reading the editorial for a problem.
 :)
 
->> [UPLB Eliens](https://github.com/uplb-eliens).
+I am the self-proclaimed Team Manager [UPLB Eliens](https://github.com/uplb-eliens).
 
 # My Profile on Various Platforms
 * [CodeChef](https://www.codechef.com/users/jachermocilla)
