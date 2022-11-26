@@ -14,14 +14,14 @@ def dfs(graph, start):
         print(node)
         for adjacent in graph[node]:
             print(node,"-->",adjacent)
-            if num[adjacent] == 0:
+            if num[adjacent] == 0:              #tree edge
                 print("tree edge")
                 dfs_util(adjacent)
-            elif num[adjacent] > num[node]:
+            elif num[adjacent] > num[node]:     #forward edge
                 print("forward edge")
-            elif mark[adjacent] == 0:            
+            elif mark[adjacent] == 0:           #cross edge       
                 print("cross edge")
-            else:
+            else:                               #back edge
                 print("back edge")
         mark[node] = 0
              
