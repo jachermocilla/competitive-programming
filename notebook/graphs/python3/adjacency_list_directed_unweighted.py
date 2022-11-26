@@ -1,8 +1,6 @@
 #modified from https://www.pythonpool.com/adjacency-list-python/
 from sys import stdin, stdout
 
-from dfs_directed_unweighted import dfs
-
 #holds the adjacency list
 adj_list = {}
 
@@ -46,18 +44,5 @@ def init_graph():
     #can be commented out, only for debugging 
     for node in adj_list:
         print(node, " ---> ", [i for i in adj_list[node]])
-
-#read the graph from stdin
-read_graph()
-
-#Printing the graph
-init_graph()
-
-#Printing the adjacency list
-print(adj_list)
-
-#run some algo on the graph
-#NOTE: make sure to change to start node based on the input
-print(dfs(adj_list,'0'))
 
 
