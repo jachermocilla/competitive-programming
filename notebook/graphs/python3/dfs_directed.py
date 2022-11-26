@@ -4,15 +4,21 @@
 i = 0
 num = {}
 mark = {}
+path = []
 
 def dfs(graph, start):
+
+    def visit(node):
+        #print(node)
+        path.append(node)
+    
     def dfs_util(node):
         global i 
         i = i+1
         num[node] = i
         mark[node] = 1
         if node is not None:
-            print(node)
+            visit(node)
         for adjacent in sorted(graph[node]):    #forced lexi order
             #print(node,"-->",adjacent)
             if num[adjacent] == 0:              #tree edge
@@ -34,3 +40,4 @@ def dfs(graph, start):
         if num[node] == 0:
             dfs_util(node)
 
+    return path
