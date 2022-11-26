@@ -1,6 +1,8 @@
 #modified from https://www.pythonpool.com/adjacency-list-python/
 from sys import stdin, stdout
 
+
+from dijkstra import _dijkstra
 from dfs_directed_weighted import dfs
 from input_graph import graph1
 
@@ -48,17 +50,42 @@ def init_graph():
     for node in adj_list:
         print(node, " ---> ", [i for i in adj_list[node]])
 
+def dijkstra_sssp(current):
+    nodes=tuple(nodelist)
+    distances={}
+    
+    for node in adj_list.keys(): 
+        temp={}
+        for adjacent_node in adj_list[node]:
+            dest = adjacent_node[0];
+            weight = int(adjacent_node[1])
+            #print(dest,weight)
+            temp[dest]=weight
+            print(temp)
+        distances[node]=temp
+    print(distances)
+    _dijkstra(current,nodes,distances)
+    return 
+
+
+
 #read the graph from stdin
 read_graph()
 
 #Printing the graph
 init_graph()
 
+
+
+
+
 #Printing the adjacency list
+print(tuple(nodelist))
 print(adj_list)
+dijkstra_sssp('0')
 
 #run some algo on the graph
 #NOTE: make sure to change to start node based on the input
-print(dfs(adj_list,'0'))
+#print(dfs(adj_list,'0'))
 
 
