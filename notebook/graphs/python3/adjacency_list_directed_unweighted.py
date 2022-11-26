@@ -33,6 +33,8 @@ def add_edge(node1, node2):
 
 def read_graph():
     for line in stdin.readlines():
+        if line.startswith("#"):
+            continue
         source,dest=line.strip().split()
         #print(u,v)
         add_edge(source,dest)
@@ -56,6 +58,7 @@ init_graph()
 print(adj_list)
 
 #run some algo on the graph
+#NOTE: make sure to change to start node based on the input
 print(dfs(adj_list,'0'))
 
 

@@ -12,7 +12,7 @@ def dfs(graph, start):
         #print(node)
         path.append(node)
     
-    def dfs_util(node):
+    def _dfs(node):
         global i 
         i = i+1
         num[node] = i
@@ -23,7 +23,7 @@ def dfs(graph, start):
             #print(node,"-->",adjacent)
             if num[adjacent] == 0:              #tree edge
                 #print("tree edge")
-                dfs_util(adjacent)
+                _dfs(adjacent)
             #elif num[adjacent] > num[node]:     #forward edge
                 #print("forward edge")
             #elif mark[adjacent] == 0:           #cross edge       
@@ -40,6 +40,6 @@ def dfs(graph, start):
     #    if num[node] == 0:
     #        dfs_util(node)
 
-    dfs_util(start)                             #start node only
+    _dfs(start)                             #start node only
 
     return path
