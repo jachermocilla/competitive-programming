@@ -61,9 +61,9 @@ def dijkstra_sssp(current):
             weight = int(adjacent_node[1])
             #print(dest,weight)
             temp[dest]=weight
-            print(temp)
+            #print(temp)
         distances[node]=temp
-    print(distances)
+    #print(distances)
     _dijkstra(current,nodes,distances)
     return 
 
@@ -82,7 +82,7 @@ init_graph()
 #Printing the adjacency list
 print(tuple(nodelist))
 print(adj_list)
-dijkstra_sssp('0')
+dijkstra_sssp('A')
 
 #run some algo on the graph
 #NOTE: make sure to change to start node based on the input

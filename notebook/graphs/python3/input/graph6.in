@@ -1,0 +1,9 @@
+#https://www.pythonpool.com/dijkstras-algorithm-python/
+A B 5
+A C 2
+B C 2
+B D 3
+C B 3
+C D 7
+D E 7
+E D 9
