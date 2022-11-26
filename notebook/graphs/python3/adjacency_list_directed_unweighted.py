@@ -2,7 +2,6 @@
 from sys import stdin, stdout
 
 from dfs_directed_unweighted import dfs
-from input_graph import graph1
 
 #holds the adjacency list
 adj_list = {}

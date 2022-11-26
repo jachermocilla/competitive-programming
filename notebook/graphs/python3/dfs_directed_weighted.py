@@ -20,8 +20,7 @@ def dfs(graph, start):
         if node is not None:
             visit(node)
         adjacent_nodes = list(graph[node])[0][0];   #extract the first element of the tuple from set
-        print(adjacent_nodes)
-        #for adjacent in sorted(graph[node]):    #forced lexi order
+        #print(adjacent_nodes)
         for adjacent in sorted(adjacent_nodes):    #forced lexi order
             #print(node,"-->",adjacent)
             if num[adjacent] == 0:              #tree edge

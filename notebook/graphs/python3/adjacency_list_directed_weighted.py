@@ -4,7 +4,6 @@ from sys import stdin, stdout
 
 from dijkstra import _dijkstra
 from dfs_directed_weighted import dfs
-from input_graph import graph1
 
 #holds the adjacency list
 adj_list = {}
