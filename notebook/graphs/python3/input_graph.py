@@ -1,3 +1,5 @@
+from sys import stdin, stdout
+
 graph2 = {'A': set(['B', 'C']),
          'B': set(['E', 'D', 'A']),
          'C': set(['F', 'A']),
@@ -12,5 +14,6 @@ graph1 = {'A': set(['B', 'C']),
          'D': set(['B']),
          'E': set(['B', 'F']),
          'F': set(['C', 'E'])}
+
 
 #print(graph1)
