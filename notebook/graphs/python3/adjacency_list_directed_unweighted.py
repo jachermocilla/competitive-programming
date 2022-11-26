@@ -3,7 +3,10 @@
 from dfs_directed import dfs
 from input_graph import graph1
 
+#holds the adjacency list
 adj_list = {}
+
+#holds the node list
 nodelist = []
 
 def add_node(node):
@@ -24,6 +27,7 @@ def add_edge(node1, node2):
         print("Nodes don't exist!")
 
 def graph():
+    #make sure to add nodes even if there are no outgoing edges
     for node in nodelist:
         if not node in adj_list.keys(): 
             temp=set()
