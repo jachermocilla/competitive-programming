@@ -9,17 +9,13 @@ def add_node(node):
         print("Node ",node," already exists!")
 
 def add_edge(node1, node2):
-    temp = set()
     if node1 in nodelist and node2 in nodelist:
-        if node1 not in adj_list:
+        if not node1 in adj_list.keys(): 
+            temp=set()
             temp.add(node2)
             adj_list[node1] = temp
-
-        elif node1 in adj_list:
-            #temp.extend(adj_list[node1])
-            temp.add(node2)
-            adj_list[node1] = temp
-
+        else:
+            adj_list[node1].add(node2)
     else:
         print("Nodes don't exist!")
 
