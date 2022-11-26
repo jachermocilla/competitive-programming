@@ -36,8 +36,10 @@ def dfs(graph, start):
         num[node] = 0
         mark[node] = 0
 
-    for node in sorted(graph.keys()):           #forced lexi order
-        if num[node] == 0:
-            dfs_util(node)
+    #for node in sorted(graph.keys()):           #forced lexi order, all nodes
+    #    if num[node] == 0:
+    #        dfs_util(node)
+
+    dfs_util(start)                             #start node only
 
     return path

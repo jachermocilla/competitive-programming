@@ -67,8 +67,8 @@ add_edge(4,0)
 graph()
 
 #Printing the adjacency list
-#print(adj_list)
-#print(dfs(adj_list,0))
+print(adj_list)
+print(dfs(adj_list,3))
 
-print(graph1)
-print(dfs(graph1,'A'))
+#print(graph1)
+#print(dfs(graph1,'C'))
