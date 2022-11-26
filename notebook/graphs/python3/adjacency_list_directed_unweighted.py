@@ -23,6 +23,11 @@ def add_edge(node1, node2):
         print("Nodes don't exist!")
 
 def graph():
+    for node in node_list:
+        if not node in adj_list.keys(): 
+            temp=set()
+            temp.add([])
+            adj_list[node1] = temp
     for node in adj_list:
         print(node, " ---> ", [i for i in adj_list[node]])
 
