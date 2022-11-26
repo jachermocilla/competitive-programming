@@ -1,4 +1,24 @@
 #https://www.pythonpool.com/dijkstras-algorithm-python/
+
+def dijkstra(current,nodelist,adj_list):
+    nodes=tuple(nodelist)
+    distances={}
+    
+    for node in adj_list.keys(): 
+        temp={}
+        for adjacent_node in adj_list[node]:
+            dest = adjacent_node[0];
+            weight = int(adjacent_node[1])
+            #print(dest,weight)
+            temp[dest]=weight
+            #print(temp)
+        distances[node]=temp
+    #print(distances)
+    return _dijkstra(current,nodes,distances)
+
+
+
+
 def _dijkstra(current, nodes, distances):
     # These are all the nodes which have not been visited yet
     unvisited = {node: None for node in nodes}
