@@ -1,0 +1,7 @@
+#https://www.pythonpool.com/adjacency-list-python/
+0 1 2
+1 2 2
+2 3 4
+3 0 5
+3 4 5
+4 0 1
