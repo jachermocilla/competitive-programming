@@ -1,7 +1,6 @@
 #modified from https://www.pythonpool.com/adjacency-list-python/
 from sys import stdin, stdout
 
-from dfs_directed import dfs
 from input_graph import graph1
 
 #holds the adjacency list
