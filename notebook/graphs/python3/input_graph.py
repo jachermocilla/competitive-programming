@@ -6,13 +6,11 @@ graph2 = {'A': set(['B', 'C']),
          'F': set(['E', 'C'])}
 
 
-
-
-graph = {'A': set(['B', 'C']),
+graph1 = {'A': set(['B', 'C']),
          'B': set(['A', 'D', 'E']),
          'C': set(['A', 'F']),
          'D': set(['B']),
          'E': set(['B', 'F']),
          'F': set(['C', 'E'])}
 
-print(graph)
+#print(graph1)

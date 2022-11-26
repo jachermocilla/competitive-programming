@@ -13,7 +13,7 @@ def dfs(graph, start):
         mark[node] = 1
         if node is not None:
             print(node)
-        for adjacent in graph[node]:
+        for adjacent in sorted(graph[node]):    #forced lexi order
             #print(node,"-->",adjacent)
             if num[adjacent] == 0:              #tree edge
                 #print("tree edge")
@@ -26,11 +26,11 @@ def dfs(graph, start):
                 #print("back edge")
         mark[node] = 0
              
-    for node in graph.keys():
+    for node in sorted(graph.keys()):           #forced lexi order
         num[node] = 0
         mark[node] = 0
 
-    for node in graph.keys():
+    for node in sorted(graph.keys()):           #forced lexi order
         if num[node] == 0:
             dfs_util(node)
 

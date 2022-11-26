@@ -1,6 +1,7 @@
 #modified from https://www.pythonpool.com/adjacency-list-python/
 
 from dfs_directed import dfs
+from input_graph import graph1
 
 adj_list = {}
 nodelist = []
@@ -66,7 +67,9 @@ add_edge(4,0)
 graph()
 
 #Printing the adjacency list
-print(adj_list)
+#print(adj_list)
 
 
-print(dfs(adj_list,'A'))
+#print(dfs(adj_list,0))
+print(graph1)
+print(dfs(graph1,'A'))
