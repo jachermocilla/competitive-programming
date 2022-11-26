@@ -64,8 +64,7 @@ def dijkstra_sssp(current):
             #print(temp)
         distances[node]=temp
     #print(distances)
-    _dijkstra(current,nodes,distances)
-    return 
+    return _dijkstra(current,nodes,distances)
 
 
 
@@ -80,9 +79,9 @@ init_graph()
 
 
 #Printing the adjacency list
-print(tuple(nodelist))
-print(adj_list)
-dijkstra_sssp('A')
+#print(tuple(nodelist))
+#print(adj_list)
+print(dijkstra_sssp('0'))
 
 #run some algo on the graph
 #NOTE: make sure to change to start node based on the input
