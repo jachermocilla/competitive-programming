@@ -1,6 +1,7 @@
 #modified from https://www.pythonpool.com/adjacency-list-python/
 from sys import stdin, stdout
 
+from dfs_directed_weighted import dfs
 from input_graph import graph1
 
 #holds the adjacency list
@@ -58,6 +59,6 @@ print(adj_list)
 
 #run some algo on the graph
 #NOTE: make sure to change to start node based on the input
-#print(dfs(adj_list,'0'))
+print(dfs(adj_list,'0'))
 
 
