@@ -1,5 +1,3 @@
-from input_graph import graph
-
 def dfs(graph, start):
     visited, stack = set(), [start]
     while stack:
@@ -9,4 +7,4 @@ def dfs(graph, start):
             stack.extend(graph[vertex] - visited)
     return visited
 
-print(dfs(graph, 'A')) # {'E', 'D', 'F', 'A', 'C', 'B'}
+#print(dfs(graph, 'A')) # {'E', 'D', 'F', 'A', 'C', 'B'}
