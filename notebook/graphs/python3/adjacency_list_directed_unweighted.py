@@ -45,6 +45,7 @@ def graph():
 #add_edge(3,4)
 #add_edge(4,0)
 
+#https://www.educative.io/answers/how-to-implement-depth-first-search-in-python
 add_node('A')
 add_node('B')
 add_node('C')
