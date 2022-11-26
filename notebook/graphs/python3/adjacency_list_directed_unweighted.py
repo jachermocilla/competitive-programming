@@ -28,6 +28,7 @@ def graph():
             temp=set()
             #temp.add()
             adj_list[node] = temp
+    #can be commented out, only for debugging 
     for node in adj_list:
         print(node, " ---> ", [i for i in adj_list[node]])
 
