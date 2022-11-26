@@ -2,15 +2,16 @@
 
 def dfs(graph, start):
     visited, stack = set(), [start]
-    path = []
+    traversal = []
     while stack:
         vertex = stack.pop()
-        print(vertex)
         if vertex not in visited:
-            path.append(vertex)
+            print(vertex)
+            traversal.append(vertex)
+            
             visited.add(vertex)
             stack.extend(graph[vertex] - visited)
     #return visited
-    return path
+    return traversal
 
 #print(dfs(graph, 'A')) # {'E', 'D', 'F', 'A', 'C', 'B'}
