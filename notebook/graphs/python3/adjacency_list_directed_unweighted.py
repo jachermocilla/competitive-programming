@@ -27,49 +27,18 @@ def graph():
         print(node, " ---> ", [i for i in adj_list[node]])
 
 #Adding nodes
-#add_node(0)
-#add_node(1)
-#add_node(2)
-#add_node(3)
-#add_node(4)
+add_node(0)
+add_node(1)
+add_node(2)
+add_node(3)
+add_node(4)
 #Adding edges
-
-#add_edge(0,1)
-#add_edge(1,2)
-#add_edge(2,3)
-#add_edge(3,0)
-#add_edge(3,4)
-#add_edge(4,0)
-add_node('A')
-add_node('B')
-add_node('C')
-add_node('D')
-add_node('E')
-add_node('F')
-
-add_edge('A','B')
-add_edge('A','C')
-
-
-add_edge('B','A')
-add_edge('B','D')
-add_edge('B','E')
-
-
-add_edge('C','A')
-add_edge('C','F')
-
-
-add_edge('D','B')
-
-add_edge('E','B')
-add_edge('E','F')
-
-
-add_edge('F','C')
-add_edge('F','E')
-
-
+add_edge(0,1)
+add_edge(1,2)
+add_edge(2,3)
+add_edge(3,0)
+add_edge(3,4)
+add_edge(4,0)
 
 #Printing the graph
 graph()
