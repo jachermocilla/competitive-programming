@@ -11,15 +11,12 @@ def add_node(node):
 def add_edge(node1, node2, weight):
     temp = []
     if node1 in nodelist and node2 in nodelist:
-        if node1 not in adj_list:
-            temp.append([node2,weight])
-            adj_list[node1] = temp
-
-        elif node1 in adj_list:
-            temp.extend(adj_list[node1])
-            temp.append([node2,weight])
-        adj_list[node1] = temp
-
+        if not node1 in adj_list.keys():
+            temp=set()
+            temp.add(tuple([node2,weight]))
+            adj_list[node1]=temp
+        else:
+            adj_list[node1].add(tuple([node2,weight]))
     else:
         print("Nodes don't exist!")
 
